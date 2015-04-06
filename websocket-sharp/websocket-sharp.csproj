@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,7 +9,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>WebSocketSharp</RootNamespace>
     <AssemblyName>websocket-sharp</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>websocket-sharp.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -51,7 +50,7 @@
     <GenerateDocumentation>true</GenerateDocumentation>
     <CustomCommands>
       <CustomCommands>
-        <Command type="AfterBuild" command="doc/doc.sh" workingdir="doc/" externalConsole="true" />
+        <Command type="AfterBuild" command="doc/doc.sh" workingdir="doc/" externalConsole="True" />
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>

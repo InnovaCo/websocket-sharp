@@ -90,6 +90,7 @@ namespace WebSocketSharp
     private Queue<MessageEventArgs> _messageEventQueue;
     private uint                    _nonceCount;
     private string                  _origin;
+    private string                  _userAgent;
     private bool                    _preAuth;
     private string                  _protocol;
     private string[]                _protocols;
@@ -424,6 +425,15 @@ namespace WebSocketSharp
 
           _origin = value.TrimEnd ('/');
         }
+      }
+    }
+
+    public string UserAgent {
+      get {
+        return _userAgent;
+      }
+      set {
+        _userAgent = value;
       }
     }
 
@@ -832,6 +842,9 @@ namespace WebSocketSharp
 
       headers["Sec-WebSocket-Key"] = _base64Key;
 
+      if ( !string.IsNullOrEmpty(_userAgent) )
+        headers["User-Agent"] = _userAgent;
+
       if (_protocols != null)
         headers["Sec-WebSocket-Protocol"] = _protocols.ToString (", ");
 
@@ -956,7 +969,7 @@ namespace WebSocketSharp
         processException (ex, "An exception has occurred while opening.");
       }
     }
-
+ 
     private bool processCloseFrame (WebSocketFrame frame)
     {
       var payload = frame.PayloadData;
